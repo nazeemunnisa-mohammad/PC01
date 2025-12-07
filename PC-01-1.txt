@@ -1,0 +1,30 @@
+import 'package:flutter/material.dart';
+
+class ScrollRowTestCase extends StatelessWidget {
+  final List<String> products = List.generate(10, (index) => "Product $index");
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text("Scroll + Row Test Case")),
+      body: SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: Row(
+          children: products.map((product) {
+            return Container(
+              margin: EdgeInsets.all(8),
+              width: 120,
+              height: 120,
+              color: Colors.red,
+              alignment: Alignment.center,
+              child: Text(
+                product,
+                style: TextStyle(color: Colors.white),
+              ),
+            );
+          }).toList(),
+        ),
+      ),
+    );
+  }
+}
